@@ -1,0 +1,32 @@
+<h3 class="text-center">dashboard</h3>
+<button id="new" class="btn btn-warning">+ new post</button>
+ <div class="card position-fixed" style="width: 50%;">
+  <div class="card-body">
+    <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Title..." aria-label="Title..." aria-describedby="basic-addon1">
+</div>
+    <div class="form-floating">
+  <textarea style="height: 100%;" class="form-control" placeholder="Type blog here..." id="floatingTextarea2" style="height: 100px"></textarea>
+</div>
+<button class="btn btn-warning mt-3">Post</button>
+<button class="btn btn-danger mt-3">cancel</button>
+  </div>
+</div>   
+
+
+
+{{#if posts.length}}
+  <div class="col-md-6 post-list">
+
+    {{#each posts as |post|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
