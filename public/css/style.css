@@ -1,5 +1,5 @@
 *{
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     text-decoration: none;
 }
 
@@ -104,4 +104,13 @@ body{
 
 main{
     overflow: auto;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover{
+    color: #ffc107;
 }
