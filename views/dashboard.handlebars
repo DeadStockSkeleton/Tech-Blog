@@ -1,5 +1,5 @@
-<h3 class="text-center">dashboard</h3>
-<a id="new" href='/new' class="btn btn-warning mx-auto">+ new post</a>
+<h3>dashboard</h3>
+<a id="new" href='/new' class="btn btn-warning position-relative top-0 start-50 translate-middle">+ new post</a>
    
 
 
@@ -11,21 +11,21 @@
     <a href='javascript: location.href = "post/{{id}}"'>
   <div class="card m-3">
     <div class="card-header">
-        {{title}} <small class="text-muted fs-6">by {{user.name}} <p class="float-end">{{format_date date_created}}</p>
+        {{title}} <small class="text-muted fs-6"><p class="float-end">{{format_date date_created}}</p>
             </small>
     </div>
     <div class="card-body">
         <p>{{content}}</p>
     </div>
-
+</a>
     <footer class="m-3">
-        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+        <button id="delete" data-id="{{id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
         <button class="btn btn-success"><i class="fas fa-pen"></i></button>
         
     </footer>
 
 </div>  
-</a>
+
     
     {{/each}}
   </div>
