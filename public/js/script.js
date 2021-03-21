@@ -1,7 +1,7 @@
 $('#post').on('click', async () => {
-    const title = $('#title').val();
-    const content = $('#content').val();
-    console.log(title)
+    const title = $('#title').val().trim();
+    const content = $('#content').val().trim();
+    console.log(content)
     if (title && content){
         const response = await fetch('/api/posts', {
             method: 'POST',
