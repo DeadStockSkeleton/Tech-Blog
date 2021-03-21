@@ -25,6 +25,12 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/new', async (req,res) => {
+    res.render('newPost', {
+        logged_in:req.session.logged_in
+    });
+})
+
 router.get('/post/:id', async (req,res) => {
     try{
         const postData = await Post.findByPk(req.params.id, {
