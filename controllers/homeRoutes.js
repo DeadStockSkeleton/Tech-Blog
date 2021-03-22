@@ -39,8 +39,14 @@ router.get('/edit/:id', async (req, res) => {
         })
 
         const post = postData.get({plain: true});
-        console.log(post)
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+            include: [{ model: Post }],
+        })
+    
+        const user = userData.get({ plain: true });
         res.render('edit', {
+            ...user,
             ...post,
             logged_in: req.session.logged_in
         });
@@ -66,15 +72,19 @@ router.get('/post/:id', async (req,res) => {
     try{
         const postData = await Post.findByPk(req.params.id, {
             include: [
+                'comment',
                 {
                     model: User,
                     attributes: ['name'],
                 }
             ]
         })
+        
+        
+    
 
         const post = postData.get({plain: true});
-
+        console.log(post)
         res.render('post', {
             ...post,
             logged_in: req.session.logged_in
